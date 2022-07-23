@@ -13,3 +13,7 @@ class TestFio:
     @pytest.mark.complete("fio --debug=foo,")
     def test_3(self, completion):
         assert completion
+
+    @pytest.mark.complete("fio --crctest=", require_cmd=True)
+    def test_crctest(self, completion):
+        assert "sha1" in completion
